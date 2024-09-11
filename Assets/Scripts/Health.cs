@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float fullHealth = 100f;
     [SerializeField] private float drainPerSecond = 2f;
-    private float currentHealth = 100f;
+    private float currentHealth = 0f;
 
     private void Awake()
     {
