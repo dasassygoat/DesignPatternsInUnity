@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float fullHealth = 100f;
     [SerializeField] private float drainPerSecond = 2f;
+
     private float currentHealth = 0f;
 
     private void Awake()
@@ -29,6 +31,7 @@ public class Health : MonoBehaviour
 
     public void ResetHealth()
     {
+        Debug.Log("Reset Health");
         currentHealth = fullHealth;
     }
 }

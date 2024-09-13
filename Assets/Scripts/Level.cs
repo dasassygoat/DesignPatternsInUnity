@@ -22,7 +22,12 @@ public class Level : MonoBehaviour
     private void GainExperience(int points)
     {
 
+        int level = GetLevel();
         experiencePoints += points;
+        if (GetLevel() > level)
+        {
+            onLevelUp.Invoke();
+        }
 
 
     }
