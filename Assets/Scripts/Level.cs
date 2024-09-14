@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +9,7 @@ public class Level : MonoBehaviour
     [SerializeField] UnityEvent onLevelUp;
     private int experiencePoints = 0;
 
+    public event Action onLevelUpAction; // Action is basically replaces the word delagate
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     IEnumerator Start()
@@ -27,9 +29,11 @@ public class Level : MonoBehaviour
         if (GetLevel() > level)
         {
             onLevelUp.Invoke();
+            if (onLevelUpAction != null)
+            {
+                onLevelUpAction();
+            }
         }
-
-
     }
 
     public int GetExperience()
